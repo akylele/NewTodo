@@ -1,0 +1,150 @@
+*{
+  outline: none;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 14px;
+}
+
+@mixin checkboxAndButton {
+  width: 20px;
+  height: 20px;
+  margin: 10px;
+  padding: 0;
+  border:none;
+}
+
+body {
+background-color: rgb(233, 233, 233);
+}
+
+.main_app{
+  position: relative;
+  width: 550px;
+  margin:0 auto;
+  border:none;
+  text-align: center;
+  box-shadow: 0 0 15px 0px gray;
+  background-color: white;
+
+  ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li{
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: center;
+      align-items: center;
+      border-bottom:1px solid rgb(209, 209, 209);
+      height: 50px;
+    }
+
+  }
+
+}
+
+h3{
+  font-size: 50px;
+  margin: 40px;
+  color:rgba(255, 0, 0, 0.123);
+  text-align: center;
+}
+
+.todo_item {
+  
+  button{
+  opacity: 0;
+  background-color: white;
+  }
+
+  input[type="checkbox"],button{
+    @include checkboxAndButton()
+  }
+
+  input[type="text"]{
+    width: 90%;
+    margin: 0;
+    border:none;
+    font-size: 16px;
+  }
+
+}
+.todo_item:hover button{
+  opacity: 1;
+}
+
+
+.new_todo{
+  border-bottom:1px solid rgb(209, 209, 209);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  span{
+    width: 10%;
+    height: 100%;
+  }
+
+  input[type="text"]{
+    padding: 10px 10px;
+    padding-left: 60px;
+    outline:none;
+    border:none;
+    width: calc(90% - 70px);
+    height: 50px;
+    font-size: 24px;
+  }
+
+}
+
+.bottom_panel{
+  padding: 10px;
+  display: grid;
+  justify-content: space-between;
+  grid-template-areas: "left center right";
+
+  .filters {
+
+    button{
+      padding: 0 3px;
+      margin-right: 2px;
+      border:1px solid white
+    }
+
+    button:hover{
+      box-sizing: border-box;
+      border:1px solid rgba(255, 0, 0, 0.247);
+      border-radius: 1px;
+      box-sizing: border-box;
+    }
+
+  }
+
+  span {
+    margin: 0 10px;
+    grid-area: left;
+  }
+
+  button {
+    grid-area: right;
+    border:none;
+    border:1px solid white;
+    background: none;
+  }
+
+  button:hover{
+    box-sizing: border-box;
+    border:1px solid rgba(255, 0, 0, 0.247);
+    border-radius: 1px;
+    box-sizing: border-box;
+  }
+
+}
+
+.done{
+  text-decoration: line-through;
+  color:gray
+}
+
